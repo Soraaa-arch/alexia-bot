@@ -4,13 +4,16 @@ const axios = require('axios');
 const apiKey = process.env.GOOGLE_GEMINI_API_KEY || "";
 const maxTokens = 2048;
 const maxStorageMessage = 4;
+const COOLDOWN_TIME = 3000; // 3 seconds cooldown
 
 if (!global.temp.geminiUsing)
         global.temp.geminiUsing = {};
 if (!global.temp.geminiHistory)
         global.temp.geminiHistory = {};
+if (!global.temp.geminiCooldown)
+        global.temp.geminiCooldown = {};
 
-const { geminiUsing, geminiHistory } = global.temp;
+const { geminiUsing, geminiHistory, geminiCooldown } = global.temp;
 
 module.exports = {
         config: {
@@ -59,6 +62,12 @@ module.exports = {
                 if (!apiKey)
                         return message.reply(getLang('apiKeyEmpty', prefix));
 
+                // Cooldown check
+                if (geminiCooldown[event.senderID] && Date.now() - geminiCooldown[event.senderID] < COOLDOWN_TIME) {
+                        const remainingTime = Math.ceil((COOLDOWN_TIME - (Date.now() - geminiCooldown[event.senderID])) / 1000);
+                        return message.reply(`⏱️ Please wait ${remainingTime} seconds before using this command again`);
+                }
+
                 switch (args[0]) {
                         case 'img':
                         case 'image':
@@ -75,21 +84,23 @@ module.exports = {
                                         const imageUrl = await generateImage(prompt);
                                         
                                         if (!imageUrl) {
-                                                return message.reply("Failed to generate image. Please try again.");
+                                                return message.reply("❌ Failed to generate image. Please try again.");
                                         }
 
                                         const image = await axios.get(imageUrl, {
-                                                responseType: 'stream'
+                                                responseType: 'stream',
+                                                timeout: 10000
                                         });
                                         image.data.path = `${Date.now()}.png`;
                                         
+                                        geminiCooldown[event.senderID] = Date.now();
                                         return message.reply({
                                                 attachment: image.data
                                         });
                                 }
                                 catch (err) {
                                         console.error("Image Generation Error:", err.message);
-                                        return message.reply(getLang('error', err.message || 'Image generation failed'));
+                                        return message.reply(getLang('error', '❌ Image generation failed. Please try again.'));
                                 }
                                 finally {
                                         delete geminiUsing[event.senderID];
@@ -176,6 +187,10 @@ async function handleGemini(event, message, args, getLang, commandName) {
 
                 const userMessage = args.join(' ');
                 
+                if (!userMessage.trim()) {
+                        return message.reply(getLang('invalidContent'));
+                }
+
                 // Keep conversation history concise
                 let conversationContext = geminiHistory[event.senderID].slice(-6).join('\n');
                 if (conversationContext) {
@@ -185,6 +200,11 @@ async function handleGemini(event, message, args, getLang, commandName) {
                 }
 
                 const response = await askGemini(event, conversationContext);
+                
+                if (!response.data?.candidates?.[0]?.content?.parts?.[0]?.text) {
+                        return message.reply(getLang('error', 'No response from Gemini'));
+                }
+
                 const text = response.data.candidates[0].content.parts[0].text;
 
                 // Store in history
@@ -194,6 +214,8 @@ async function handleGemini(event, message, args, getLang, commandName) {
                 // Keep history size manageable
                 if (geminiHistory[event.senderID].length > 20)
                         geminiHistory[event.senderID] = geminiHistory[event.senderID].slice(-20);
+
+                geminiCooldown[event.senderID] = Date.now();
 
                 return message.reply(text, (err, info) => {
                         global.GoatBot.onReply.set(info.messageID, {
@@ -206,7 +228,7 @@ async function handleGemini(event, message, args, getLang, commandName) {
         catch (err) {
                 console.error("Gemini Error:", err.response?.data || err.message);
                 const errorMessage = err.response?.data?.error?.message || err.message || "Unknown error";
-                return message.reply(getLang('error', errorMessage));
+                return message.reply(getLang('error', `❌ ${errorMessage}`));
         }
         finally {
                 delete geminiUsing[event.senderID];

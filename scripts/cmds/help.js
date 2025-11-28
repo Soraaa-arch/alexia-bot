@@ -22,7 +22,9 @@ module.exports = {
                         fun: "🎪", owner: "👑", config: "🔧", economy: "💰",
                         media: "🎬", "18+": "🔞", tools: "🛠️", utility: "📚",
                         info: "ℹ️", image: "🖼️", game: "🎮", admin: "🛡️",
-                        rank: "⭐", boxchat: "💬", others: "✨", games: "🎯", yugioh: "🎴"
+                        rank: "⭐", "box chat": "💬", "box-chat": "💬", boxchat: "💬", 
+                        others: "✨", games: "🎯", yugioh: "🎴", pokemon: "🎎", 
+                        "anime-image": "🎨", card: "🃏"
                 };
 
                 const cleanCategoryName = (text) => {
@@ -93,6 +95,7 @@ module.exports = {
 ╔═══════════════════════════════════════╗
 ║  ✨ 𝗔𝗟𝗘𝗫𝗜𝗔 𝗕𝗢𝗧 ✨              ║
 ║  Your AI Assistant & Game Master     ║
+║  Total Commands: ${allCommands.size}                 ║
 ╚═══════════════════════════════════════╝
 `;
                 const sortedCategories = Object.keys(categories).sort();
@@ -106,6 +109,7 @@ module.exports = {
                 msg += `
 ╔═══════════════════════════════════════╗
 ║ 💡 USE: ${prefix}help [command]       ║
+║ ⏱️  COOLDOWN: 3 seconds between uses ║
 ║ 👑 ADMIN: ${prefix}callad              ║
 ╚═══════════════════════════════════════╝
 `;
