@@ -1,0 +1,212 @@
+# COMPLETE FILE LIST FOR GITHUB UPLOAD - COPY/PASTE EXACTLY
+
+## ROOT FILES (10 files)
+Goat.js
+utils.js
+updater.js
+versions.json
+.gitignore
+fca-config.json
+Copyright.txt
+configCommands.json
+update.js
+restoreBackup.js
+
+## LOGGER FOLDER (3 files)
+logger/log.js
+logger/logColor.js
+logger/loading.js
+
+## SCRIPTS/CMDS FOLDER (119 Command Files)
+scripts/cmds/20questions.js
+scripts/cmds/accept.js
+scripts/cmds/adboxonly.js
+scripts/cmds/adduser.js
+scripts/cmds/admin.js
+scripts/cmds/adminonly.js
+scripts/cmds/aigen.js
+scripts/cmds/alldl.js
+scripts/cmds/all.js
+scripts/cmds/analyze.js
+scripts/cmds/antichangeinfobox.js
+scripts/cmds/appstore.js
+scripts/cmds/autosetname.js
+scripts/cmds/avatar.js
+scripts/cmds/backupdata.js
+scripts/cmds/badwords.js
+scripts/cmds/balance.js
+scripts/cmds/ban.js
+scripts/cmds/bank.js
+scripts/cmds/bet.js
+scripts/cmds/busy.js
+scripts/cmds/callad.js
+scripts/cmds/cardshop.js
+scripts/cmds/cards.js
+scripts/cmds/cmd.js
+scripts/cmds/coin.js
+scripts/cmds/count.js
+scripts/cmds/customrankcard.js
+scripts/cmds/daily.js
+scripts/cmds/deckbuild.js
+scripts/cmds/deckmeta.js
+scripts/cmds/delete.js
+scripts/cmds/demo.js
+scripts/cmds/dev.js
+scripts/cmds/dhbc.js
+scripts/cmds/dice.js
+scripts/cmds/edit.js
+scripts/cmds/eightball.js
+scripts/cmds/emojimean.js
+scripts/cmds/emojimix.js
+scripts/cmds/eval.js
+scripts/cmds/event.js
+scripts/cmds/file.js
+scripts/cmds/filteruser.js
+scripts/cmds/fork.js
+scripts/cmds/getfbstate.js
+scripts/cmds/gpt.js
+scripts/cmds/grouptag.js
+scripts/cmds/guess.js
+scripts/cmds/guessnumber.js
+scripts/cmds/hangman.js
+scripts/cmds/help.js
+scripts/cmds/hubble.js
+scripts/cmds/ignoreonlyadbox.js
+scripts/cmds/ignoreonlyad.js
+scripts/cmds/imgbb.js
+scripts/cmds/jsontomongodb.js
+scripts/cmds/jsontosqlite.js
+scripts/cmds/kick.js
+scripts/cmds/level.js
+scripts/cmds/loadconfig.js
+scripts/cmds/maze.js
+scripts/cmds/moon.js
+scripts/cmds/newcommand.eg.js
+scripts/cmds/notification.js
+scripts/cmds/numlookup.js
+scripts/cmds/pfp.js
+scripts/cmds/pi.js
+scripts/cmds/pin.js
+scripts/cmds/pokemon.js
+scripts/cmds/prefix.js
+scripts/cmds/premium.js
+scripts/cmds/quizbattle.js
+scripts/cmds/rank.js
+scripts/cmds/rankup.js
+scripts/cmds/refresh.js
+scripts/cmds/restart.js
+scripts/cmds/richlist.js
+scripts/cmds/riddle.js
+scripts/cmds/rps.js
+scripts/cmds/rules.js
+scripts/cmds/save.js
+scripts/cmds/say.js
+scripts/cmds/send.js
+scripts/cmds/sendnoti.js
+scripts/cmds/setalias.js
+scripts/cmds/setavt.js
+scripts/cmds/setlang.js
+scripts/cmds/setleave.js
+scripts/cmds/setname.js
+scripts/cmds/setrankup.js
+scripts/cmds/setrole.js
+scripts/cmds/setwelcome.js
+scripts/cmds/shell.js
+scripts/cmds/shop.js
+scripts/cmds/shortcut.js
+scripts/cmds/sing.js
+scripts/cmds/sorthelp.js
+scripts/cmds/spamban.js
+scripts/cmds/spinwheel.js
+scripts/cmds/texttoimage.js
+scripts/cmds/thread.js
+scripts/cmds/tid.js
+scripts/cmds/topdecks.js
+scripts/cmds/trade.js
+scripts/cmds/translate.js
+scripts/cmds/trivia.js
+scripts/cmds/ttt.js
+scripts/cmds/uid.js
+scripts/cmds/unsend.js
+scripts/cmds/update.js
+scripts/cmds/up.js
+scripts/cmds/user.js
+scripts/cmds/vip.js
+scripts/cmds/warn.js
+scripts/cmds/weather.js
+scripts/cmds/wl.js
+scripts/cmds/wordchain.js
+scripts/cmds/wyr.js
+scripts/cmds/ytb.js
+scripts/cmds/yugioh.js
+
+## SCRIPTS/DATA FOLDER (1 file)
+scripts/data/cardsDatabase.js
+
+## SCRIPTS/EVENTS FOLDER (4 files)
+scripts/events/message_create.js
+scripts/events/message_reaction.js
+scripts/events/message_unsend.js
+scripts/events/message_reply.js
+
+## BOT/LOGIN FOLDER (10 files)
+bot/login/checkLiveCookie.js
+bot/login/connectSocketIO.example.js
+bot/login/getFbstate.js
+bot/login/getFbstate1.js
+bot/login/handlerWhenListenHasError.js
+bot/login/loadData.js
+bot/login/loadScripts.js
+bot/login/login.js
+bot/login/loginMbasic.js
+bot/login/socketIO.js
+
+## BOT/HANDLER FOLDER (3 files)
+bot/handler/handlerAction.js
+bot/handler/handlerCheckData.js
+bot/handler/handlerEvents.js
+
+## BOT/CUSTOM FOLDER (2 files)
+bot/custom.js
+bot/autoUptime.js
+
+## DASHBOARD/ROUTES FOLDER (7 files)
+dashboard/routes/api.js
+dashboard/routes/changePassword.js
+dashboard/routes/dashBoard.js
+dashboard/routes/forgotPassword.js
+dashboard/routes/login.js
+dashboard/routes/register.js
+dashboard/routes/verifyfbid.js
+
+## DATABASE/CONNECTDB FOLDER (2 files)
+database/connectDB/connectMongoDB.js
+database/connectDB/connectSqlite.js
+
+## DASHBOARD/MIDDLEWARE (1 file)
+dashboard/middleware/index.js
+
+---
+
+# TOTAL FILES: ~160 files
+
+# HOW TO UPLOAD EACH FILE:
+
+1. Copy the **filepath** from above (e.g., `scripts/cmds/aigen.js`)
+2. Go to GitHub: https://github.com/alexaterflix-tech/alexia-bot
+3. Click **"Add file"** → **"Create new file"**
+4. **Paste the filepath** in the filename field
+5. Open that file in Replit
+6. **Select All** (Ctrl+A) → **Copy** (Ctrl+C)
+7. Paste in GitHub (Ctrl+V)
+8. Click **"Commit changes"**
+9. **Repeat for next file**
+
+---
+
+# SPEED TIP:
+Open Replit on left side of screen, GitHub on right side.
+Copy from Replit → Paste in GitHub = 1-2 minutes per file
+Total time: ~3-4 hours for all files
+
+**You can do this! The bot will work perfectly once all files are uploaded!** ✅
