@@ -234,7 +234,7 @@ global.responseUptimeError = responseUptimeError;
 
 global.statusAccountBot = 'good';
 let changeFbStateByCode = false;
-let latestChangeContentAccount = fs.statSync(dirAccount).mtimeMs;
+let latestChangeContentAccount = fs.existsSync(dirAccount) ? fs.statSync(dirAccount).mtimeMs : 0;
 let dashBoardIsRunning = false;
 
 
@@ -402,8 +402,15 @@ async function getAppStateToLogin(loginWithEmail) {
         let appState = [];
         if (loginWithEmail)
                 return await getAppStateFromEmail(undefined, facebookAccount);
-        if (!existsSync(dirAccount))
+        if (!existsSync(dirAccount)) {
+                // Try to get credentials from environment variables
+                if (process.env.FB_EMAIL && process.env.FB_PASSWORD) {
+                        facebookAccount.email = process.env.FB_EMAIL;
+                        facebookAccount.password = process.env.FB_PASSWORD;
+                        return await getAppStateFromEmail(undefined, facebookAccount);
+                }
                 return log.error("LOGIN FACEBOOK", getText('login', 'notFoundDirAccount', colors.green(dirAccount)));
+        }
         const accountText = readFileSync(dirAccount, "utf8");
 
         try {
