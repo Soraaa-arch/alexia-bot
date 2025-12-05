@@ -1,7 +1,7 @@
 {
   "facebookAccount": {
-    "email": "alexaterflix@gmail.com",
-    "password": "Mtc@2211a",
+    "email": "",
+    "password": "",
     "2FASecret": "",
     "i_user": "",
     "proxy": "",
@@ -12,20 +12,20 @@
   "antiInbox": false,
   "language": "en",
   "notesLanguage": "change to your language with ISO 639-1 code, available languages: vi (Vietnamese), en (English)",
-  "nickNameBot": "Alexia",
-  "prefix": "*",
+  "nickNameBot": "Eina",
+  "prefix": "/",
   "adminOnly": {
     "enable": false,
     "ignoreCommand": []
   },
   "adminBot": [
-    "100088928572167"
+    "61576612175253"
   ],
   "premiumUsers": [
-    "100088928572167"
+    "61576612175253"
   ],
   "devUsers": [
-    "100088928572167"
+    "61576612175253"
   ],
   "notes_premiumUsers": "List of user IDs with premium access (role 3)",
   "notes_devUsers": "List of developer IDs with full access (role 4)",
