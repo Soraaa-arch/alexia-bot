@@ -1,46 +1,36 @@
 module.exports = {
-	config: {
-		name: "balance",
-		aliases: ["bal"],
-		version: "1.2",
-		author: "NTKhang",
-		countDown: 5,
-		role: 0,
-		description: {
-			vi: "xem số tiền hiện có của bạn hoặc người được tag",
-			en: "view your money or the money of the tagged person"
-		},
-		category: "economy",
-		guide: {
-			vi: "   {pn}: xem số tiền của bạn"
-				+ "\n   {pn} <@tag>: xem số tiền của người được tag",
-			en: "   {pn}: view your money"
-				+ "\n   {pn} <@tag>: view the money of the tagged person"
-		}
-	},
+        config: {
+                name: "balance",
+                aliases: ["wallet", "coins"],
+                version: "1.0",
+                author: "Replit Agent",
+                countDown: 2,
+                role: 0,
+                description: {
+                        en: "Check your wallet balance"
+                },
+                category: "economy",
+                guide: {
+                        en: "   {pn} - Check your wallet coins"
+                }
+        },
 
-	langs: {
-		vi: {
-			money: "Bạn đang có %1$",
-			moneyOf: "%1 đang có %2$"
-		},
-		en: {
-			money: "👛 WALLET BALANCE\n\n💰 Coins: %1$\n\n💡 Tip: Use *bank to check bank\n💡 Tip: Use *send @user <amount> to send coins",
-			moneyOf: "%1 has %2$"
-		}
-	},
+        langs: {
+                en: {
+                        balance: "👛 WALLET BALANCE\n\n💰 Coins: %1\n\n💡 Tip: Use *bank to check bank\n💡 Tip: Use *send @user <amount> to send coins"
+                }
+        },
 
-	onStart: async function ({ message, usersData, event, getLang }) {
-		if (Object.keys(event.mentions).length > 0) {
-			const uids = Object.keys(event.mentions);
-			let msg = "";
-			for (const uid of uids) {
-				const userMoney = await usersData.get(uid, "money");
-				msg += getLang("moneyOf", event.mentions[uid].replace("@", ""), userMoney) + '\n';
-			}
-			return message.reply(msg);
-		}
-		const userData = await usersData.get(event.senderID);
-		message.reply(getLang("money", userData.money));
-	}
+        onStart: async function ({ message, getLang, event, usersData }) {
+                const userID = event.senderID;
+                
+                let userData = await usersData.get(userID, "data.economy");
+                if (!userData) {
+                        userData = { wallet: 0, bank: 0 };
+                        await usersData.set(userID, userData, "data.economy");
+                }
+
+                const wallet = userData.wallet || 0;
+                return message.reply(getLang("balance", wallet));
+        }
 };
