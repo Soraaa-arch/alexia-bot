@@ -89,7 +89,7 @@ function stripHtml(html) {
 
 module.exports = {
   config: {
-    name: "manga",
+    name: "hentai",
     author: "Hulaan mo",
     version: "1.0.1",
     cooldowns: 5,
