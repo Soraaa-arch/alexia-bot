@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 // config - using Google Gemini API
-const apiKey = process.env.GOOGLE_GEMINI_API_KEY || "";
+const apiKey = process.env.GOOGLE_GEMINI_API_KEY || "AIzaSyCN8xtS3H1Jg3uFBJMuMrRSkQQGsSdz4vE";
 const maxTokens = 2048;
 const maxStorageMessage = 4;
 const COOLDOWN_TIME = 3000; // 3 seconds cooldown
