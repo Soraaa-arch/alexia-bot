@@ -1,3 +1,4 @@
+
 const fs = require("fs");
 const { downloadVideo } = require("sagor-video-downloader");
 
@@ -45,7 +46,7 @@ module.exports = {
 
                 await api.sendMessage(
                     {
-                        body: 🎬 *${title || "ভিডিও"}*,
+                        body: `🎬 *${title || "ভিডিও"}*`,
                         attachment: fs.createReadStream(filePath)
                     },
                     threadID,
@@ -70,7 +71,7 @@ module.exports = {
         if (uniqueLinks.length > 1) {
             setTimeout(() => {
                 api.sendMessage(
-                    📊 সারাংশ: ✅ ${successCount} সফল | ❌ ${failCount} ব্যর্থ,
+                    `📊 সারাংশ: ✅ ${successCount} সফল | ❌ ${failCount} ব্যর্থ`,
                     threadID
                 );
             }, 2000);
