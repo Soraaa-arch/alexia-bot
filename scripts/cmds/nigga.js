@@ -1,3 +1,4 @@
+
 const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
@@ -22,14 +23,14 @@ module.exports = {
       const mention = Object.keys(event.mentions || {});
       const targetUID = mention.length > 0 ? mention[0] : event.senderID;
 
-      const url = https://betadash-api-swordslush-production.up.railway.app/nigga?userid=${targetUID};
+      const url = `https://betadash-api-swordslush-production.up.railway.app/nigga?userid=${targetUID}`;
       const response = await axios.get(url, { responseType: 'arraybuffer' });
 
-      const filePath = path.join(__dirname, "cache", roast_${targetUID}.jpg);
+      const filePath = path.join(__dirname, "cache", `roast_${targetUID}.jpg`);
       fs.writeFileSync(filePath, Buffer.from(response.data, "binary"));
 
       api.sendMessage({
-        body: Look I found a nigga 😂,
+        body: `Look I found a nigga 😂`,
         attachment: fs.createReadStream(filePath)
       }, event.threadID, () => fs.unlinkSync(filePath), event.messageID);
 
