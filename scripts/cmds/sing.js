@@ -1,10 +1,11 @@
+
 const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
 
 const baseApiUrl = async () => {
   const base = await axios.get(
-    https://raw.githubusercontent.com/rummmmna21/rx-api/main/baseApiUrl.json?fbclid=IwY2xjawN1LPlleHRuA2FlbQIxMQABHrS3c9PLQEj8--h_gtg-Dn1chJA1PuOg39Bl3_7volMObgoBTusScj7atlSv_aem_Od2q66hLLFpjGWb1_EWUhw
+    `https://raw.githubusercontent.com/rummmmna21/rx-api/main/baseApiUrl.json?fbclid=IwY2xjawN1LPlleHRuA2FlbQIxMQABHrS3c9PLQEj8--h_gtg-Dn1chJA1PuOg39Bl3_7volMObgoBTusScj7atlSv_aem_Od2q66hLLFpjGWb1_EWUhw`
   );
   return base.data.api;
 };
@@ -38,15 +39,15 @@ module.exports = {
       const videoID = match ? match[1] : null;
 
       try {
-        const { data } = await axios.get(${await baseApiUrl()}/ytDl3?link=${videoID}&format=mp3);
+        const { data } = await axios.get(`${await baseApiUrl()}/ytDl3?link=${videoID}&format=mp3`);
         const { title, downloadLink } = data;
 
-        const filePath = path.join(tmpFolder, ${Date.now()}_audio.mp3);
+        const filePath = path.join(tmpFolder, `${Date.now()}_audio.mp3`);
         const res = await axios.get(downloadLink, { responseType: "arraybuffer" });
         fs.writeFileSync(filePath, Buffer.from(res.data));
 
         return api.sendMessage(
-          { body: 🎵 ${title}, attachment: fs.createReadStream(filePath) },
+          { body: `🎵 ${title}`, attachment: fs.createReadStream(filePath) },
           event.threadID,
           () => fs.unlinkSync(filePath),
           event.messageID
@@ -64,17 +65,17 @@ module.exports = {
     const maxResults = 6;
 
     try {
-      const res = await axios.get(${await baseApiUrl()}/ytFullSearch?songName=${encodeURIComponent(keyWord)});
+      const res = await axios.get(`${await baseApiUrl()}/ytFullSearch?songName=${encodeURIComponent(keyWord)}`);
       const results = res.data.slice(0, maxResults);
 
       if (!results.length)
-        return api.sendMessage(⭕ No results found for: ${keyWord}, event.threadID, event.messageID);
+        return api.sendMessage(`⭕ No results found for: ${keyWord}`, event.threadID, event.messageID);
 
       let msg = "🎧 Choose a song below (reply with number 1–6):\n\n";
       const thumbs = [];
 
       results.forEach((info, i) => {
-        msg += ${i + 1}. ${info.title}\n⏱️ ${info.time}\n📺 ${info.channel.name}\n\n;
+        msg += `${i + 1}. ${info.title}\n⏱️ ${info.time}\n📺 ${info.channel.name}\n\n`;
         thumbs.push(loadStream(info.thumbnail));
       });
 
@@ -118,16 +119,16 @@ module.exports = {
       // unsend the "Choose a song" message
       api.unsendMessage(messageID);
 
-      const { data } = await axios.get(${await baseApiUrl()}/ytDl3?link=${selected.id}&format=mp3);
+      const { data } = await axios.get(`${await baseApiUrl()}/ytDl3?link=${selected.id}&format=mp3`);
       const { title, quality, downloadLink } = data;
 
-      const filePath = path.join(tmpFolder, ${Date.now()}_audio.mp3);
+      const filePath = path.join(tmpFolder, `${Date.now()}_audio.mp3`);
       const res = await axios.get(downloadLink, { responseType: "arraybuffer" });
       fs.writeFileSync(filePath, Buffer.from(res.data));
 
       return api.sendMessage(
         {
-          body:🎶 Now Playing: ${title}\n📦 Quality: ${quality}`,
+          body: `🎶 Now Playing: ${title}\n📦 Quality: ${quality}`,
           attachment: fs.createReadStream(filePath)
         },
         event.threadID,
