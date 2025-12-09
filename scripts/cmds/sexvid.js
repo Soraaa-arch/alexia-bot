@@ -1,7 +1,3 @@
-
-
-
-
 module.exports = {
   config: {
     name: "sexvid",
@@ -22,7 +18,7 @@ module.exports = {
     const senderID = event.senderID;
 
     const loadingMessage = await message.reply({
-      body: "Tham video dicchi ektu Dara 😏",
+      body: "Please wait, The video is being prepared by Bold master, Jusfer.",
     });
 
     const link = [
@@ -156,7 +152,7 @@ module.exports = {
 
     if (senderID !== null) {
       message.reply({
-        body: 'Dekh beta 😂',
+        body: 'This video is hand picked by Bold master, Jusfer. ',
         attachment: await global.utils.getStreamFromURL(randomVideo),
       });
 
