@@ -1,3 +1,4 @@
+
 const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
@@ -24,7 +25,7 @@ module.exports = {
     }
 
     try {
-      const res = await axios.get(https://api.jikan.moe/v4/anime?q=${encodeURIComponent(query)}&limit=1);
+      const res = await axios.get(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(query)}&limit=1`);
       const anime = res.data.data[0];
 
       if (!anime) return api.sendMessage("❌ No results found.", event.threadID);
