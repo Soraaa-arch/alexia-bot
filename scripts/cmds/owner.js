@@ -23,10 +23,7 @@ module.exports = {
 		const authorFB = "https://www.facebook.com/share/1DFk54nnR1/";
 		const authorNumber = "N/A";
 		const Status = "Single";
-		const urls = [
-"",
-""
-];
+		
 		const link = urls[Math.floor(Math.random() * urls.length)];
 		const now = moment().tz('Asia/Manila');
 		const date = now.format('MMMM Do YYYY');
