@@ -24,8 +24,8 @@ module.exports = {
 		const authorNumber = "N/A";
 		const Status = "Single";
 		const urls = [
-"https://drive.google.com/uc?id=1a72QhBuup4I3IcYhDblJBe1D__fyIh4k",
-"https://drive.google.com/uc?id=1WPeoXpdO7OZ1y9NiyGgYdwsQawV21Oju"
+"",
+""
 ];
 		const link = urls[Math.floor(Math.random() * urls.length)];
 		const now = moment().tz('Asia/Manila');
