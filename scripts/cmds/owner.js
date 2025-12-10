@@ -24,7 +24,6 @@ module.exports = {
 		const authorNumber = "N/A";
 		const Status = "Single";
 		
-		const link = urls[Math.floor(Math.random() * urls.length)];
 		const now = moment().tz('Asia/Manila');
 		const date = now.format('MMMM Do YYYY');
 		const time = now.format('h:mm:ss A');
@@ -51,7 +50,6 @@ module.exports = {
     𝑻𝒈:  N/A
     𝑰𝒏𝒔𝒕𝒂:  N/A
 \===============`,
-			attachment: await global.utils.getStreamFromURL(link)
 		});
 	},
 	onChat: async function ({ event, message, getLang }) {
