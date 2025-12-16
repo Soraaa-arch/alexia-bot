@@ -5,7 +5,7 @@ const simsim = "https://api.cyber-ninjas.top";
 
 module.exports = {
   config: {
-    name: "sim",
+    name: "test",
     version: "2.0.0",
     author: "rX",
     countDown: 0,
