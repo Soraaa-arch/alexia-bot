@@ -17,12 +17,12 @@ module.exports = {
 		envConfig: {}
 	},
 	onStart: async function ({ message }) {
-		const authorName = " Penelope Von ";
+		const authorName = " Hera Faeyna ";
 		const ownAge = "Secret!";
-		const messenger = "N/A";
-		const authorFB = "https://www.facebook.com/share/1DFk54nnR1/";
+		const messenger = "https://web.facebook.com/moguhera";
+		const authorFB = "https://web.facebook.com/moguhera";
 		const authorNumber = "N/A";
-		const Status = "Single";
+		const Status = "Taken";
 		
 		const now = moment().tz('Asia/Manila');
 		const date = now.format('MMMM Do YYYY');
@@ -45,7 +45,7 @@ module.exports = {
 \🌍彡𝐹𝑎𝑐𝑒𝑏𝑜𝑜𝑘 𝐿𝑖𝑛𝑘 :  ${authorFB}
 \🗓彡𝐷𝑎𝑡𝑒 : ${date}
 \⏰彡𝑁𝑜𝑤 𝑇𝑖𝑚𝑒 : ${time}
-\🔰彡𝐴𝑛𝑦 𝐻𝑒𝑙𝑝 𝐶𝑜𝑛𝑡𝑎𝑐𝑡 : ${messenger}__⩸
+\🔰彡𝐴𝑛𝑦 𝐻𝑒𝑙𝑝 𝐶𝑜𝑛𝑡𝑎𝑐𝑡 : ${messenger}
 \📛彡𝐵𝑜𝑡 𝐼𝑠 𝑅𝑢𝑛𝑛𝑖𝑛𝑔 𝐹𝑜𝑟 : ${uptimeString}
     𝑻𝒈:  N/A
     𝑰𝒏𝒔𝒕𝒂:  N/A
