@@ -20,17 +20,18 @@
   },
   "adminBot": [
     "61576612175253", 
-    "",
-    "",
+    "100078673028343",
     "61584842426414"
   ],
   "premiumUsers": [
     "61576612175253",
-    "61584842426414"
+    "61584842426414",
+    "100078673028343"
   ],
   "devUsers": [
     "61576612175253",
-    "61584842426414"
+    "61584842426414",
+    "100078673028343"
   ],
   "notes_premiumUsers": "List of user IDs with premium access (role 3)",
   "notes_devUsers": "List of developer IDs with full access (role 4)",
