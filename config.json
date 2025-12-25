@@ -1,7 +1,7 @@
 {
   "facebookAccount": {
-    "email": "p.senaris00@gmail.com",
-    "password": "finnslwly",
+    "email": "fuydasitri@necub.com",
+    "password": "penelope1123",
     "2FASecret": "",
     "i_user": "",
     "proxy": "",
@@ -12,7 +12,7 @@
   "antiInbox": false,
   "language": "en",
   "notesLanguage": "change to your language with ISO 639-1 code, available languages: vi (Vietnamese), en (English)",
-  "nickNameBot": "Eina",
+  "nickNameBot": "Penelope",
   "prefix": "/",
   "adminOnly": {
     "enable": false,
