@@ -4,7 +4,7 @@ const fs = require("fs");
 const cron = require("node-cron");
 const greetings = {
   eveningDinner: [
-    { time: "7:55 PM", message: "etits" }
+    { time: "8:25 PM", message: "etits" }
   ],
   lateNightSnack: [
     { time: "12:00 AM", message: "Happy new year @everyone" },
