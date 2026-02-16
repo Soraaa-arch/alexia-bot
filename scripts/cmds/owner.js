@@ -17,12 +17,12 @@ module.exports = {
 		envConfig: {}
 	},
 	onStart: async function ({ message }) {
-		const authorName = " Hera Faeyna ";
+		const authorName = " Minh Anh ";
 		const ownAge = "Secret!";
-		const messenger = "https://web.facebook.com/moguhera";
-		const authorFB = "https://web.facebook.com/moguhera";
+		const messenger = "https://web.facebook.com/61576612175253";
+		const authorFB = "https://web.facebook.com/61576612175253";
 		const authorNumber = "N/A";
-		const Status = "Taken";
+		const Status = "Single";
 		
 		const now = moment().tz('Asia/Manila');
 		const date = now.format('MMMM Do YYYY');
@@ -47,8 +47,8 @@ module.exports = {
 \⏰彡𝑁𝑜𝑤 𝑇𝑖𝑚𝑒 : ${time}
 \🔰彡𝐴𝑛𝑦 𝐻𝑒𝑙𝑝 𝐶𝑜𝑛𝑡𝑎𝑐𝑡 : ${messenger}
 \📛彡𝐵𝑜𝑡 𝐼𝑠 𝑅𝑢𝑛𝑛𝑖𝑛𝑔 𝐹𝑜𝑟 : ${uptimeString}
-    𝑻𝒈:  t.me/Heragaiaa
-    𝑰𝒏𝒔𝒕𝒂:  gaia.herashi
+    𝑻𝒈:  N/A
+    𝑰𝒏𝒔𝒕𝒂:  N/A
 \===============`,
 		});
 	},
