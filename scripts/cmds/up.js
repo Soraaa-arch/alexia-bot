@@ -16,7 +16,7 @@ function formatDuration(seconds) {
 
 module.exports = {
   config: {
-    name: "uptime",
+    name: "up",
     aliases: ["runtime", "status", "upt", "up"],
     version: "1.3", 
     author: "NeoKEX",
