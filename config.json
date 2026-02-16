@@ -1,7 +1,7 @@
 {
   "facebookAccount": {
-    "email": "sierrakien3@gmail.com",
-    "password": "kinginamopatrick",
+    "email": "kivyeheim@gmail.com",
+    "password": "kivyevonheim",
     "2FASecret": "",
     "i_user": "",
     "proxy": "",
@@ -12,7 +12,7 @@
   "antiInbox": false,
   "language": "en",
   "notesLanguage": "change to your language with ISO 639-1 code, available languages: vi (Vietnamese), en (English)",
-  "nickNameBot": "Penelope",
+  "nickNameBot": "Kivye",
   "prefix": "/",
   "adminOnly": {
     "enable": false,
@@ -20,18 +20,18 @@
   },
   "adminBot": [
     "61576612175253", 
-    "100078673028343",
-    "61584842426414"
+    "",
+    ""
   ],
   "premiumUsers": [
     "61576612175253",
-    "61584842426414",
-    "100078673028343"
+    "",
+    "1"
   ],
   "devUsers": [
     "61576612175253",
-    "61584842426414",
-    "100078673028343"
+    "",
+    ""
   ],
   "notes_premiumUsers": "List of user IDs with premium access (role 3)",
   "notes_devUsers": "List of developer IDs with full access (role 4)",
