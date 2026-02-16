@@ -1,39 +1,49 @@
 
-const axios = require("axios");
-
 module.exports = {
   config: {
     name: "cdp",
-    aliases: ["coupledp"],
     version: "1.0",
-    author: "Saimx69x",
+    author: "xalman but edit siyuuuu",
     countDown: 5,
     role: 0,
-    shortDescription: "Random Couple DP",
-    longDescription: "Send random couple DP",
+    shortDescription: "Get 4 random DPs",
+    longDescription: "Get 4 random profile pictures for boys or girls at once.",
     category: "image",
-    guide: "{pn}"
+    guide: "{pn} boy or {pn} girl"
   },
 
-  onStart: async function ({ api, event }) {
-    try {
-      const res = await axios.get("https://xsaim8x-xxx-api.onrender.com/api/cdp2");
-      const { boy, girl } = res.data;
+  onStart: async function ({ api, event, args }) {
+    const axios = require("axios");
+    const { threadID, messageID } = event;
 
-      api.sendMessage(
-        {
-          body: "𝐇𝐞𝐫𝐞'𝐬 𝐲𝐨𝐮𝐫 𝐜𝐝𝐩! 😘✨️",
-          attachment: await Promise.all([
-            global.utils.getStreamFromURL(boy),
-            global.utils.getStreamFromURL(girl)
-          ])
-        },
-        event.threadID,
-        event.messageID
-      );
-    } catch (e) {
-      api.sendMessage("❌ Couldn't fetch Couple DP.", event.threadID, event.messageID);
-      console.error(e);
+    const type = args[0] ? args[0].toLowerCase() : "boy";
+    
+    if (type !== "boy" && type !== "girl") {
+      return api.sendMessage("❌ Please use 'boy' or 'girl'. Example: /dp boy", threadID, messageID);
+    }
+
+    api.sendMessage(`📸 Fetching 4 random ${type} DPs... Please wait.`, threadID, messageID);
+
+    try {
+      const attachments = [];
+
+      for (let i = 0; i < 4; i++) {
+        const res = await axios.get(`https://nx-dp-api-poaz.onrender.com/dp/${type}`);
+        const imageUrl = res.data.url;
+
+        const stream = await global.utils.getStreamFromURL(imageUrl);
+        attachments.push(stream);
+      }
+
+      const form = {
+        body: `✅ 4 Random ${type.toUpperCase()} DPs\n👤 Author: xalman`,
+        attachment: attachments
+      };
+
+      return api.sendMessage(form, threadID, messageID);
+    } catch (error) {
+      console.error(error);
+      return api.sendMessage("An error occurred! Maybe the API is down or slow.", threadID, messageID);
     }
   }
 };
